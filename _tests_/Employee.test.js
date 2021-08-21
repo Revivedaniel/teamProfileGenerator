@@ -17,7 +17,7 @@ describe("Employee", () => {
         const obj = new Employee("Daniel", 1, "Daniel@fakeemail.com");
         expect(obj.getId()).toBe(1)
     })
-    //Testing the the  getId function returns a error if the id passed through isnt a number
+    //Testing the the  getId function returns a error if the id passed to Employee isnt a number
     it("Should throw an error of Id needs to be a number", () => {
         const obj = new Employee("Daniel", "one", "Daniel@fakeemail.com");
         const err = new Error("Id needs to be a number");
@@ -27,5 +27,11 @@ describe("Employee", () => {
      it("Should return Daniel@fakeemail.com", () => {
         const obj = new Employee("Daniel", 1, "Daniel@fakeemail.com");
         expect(obj.getEmail()).toBe("Daniel@fakeemail.com")
+    })
+    //Testing that the getEmail function returns an error when the email passed to Employee was in the wrong format
+    it("Should throw an error of Email needs to be in the following format email@website.com", () => {
+        const obj = new Employee("Daniel", 1, "Daniel@fakeemail")
+        const err = new Error("Email needs to be in the following format email@website.com")
+        expect(() => obj.getEmail()).toThrow(err)
     })
 })
