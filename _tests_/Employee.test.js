@@ -17,4 +17,10 @@ describe("Employee", () => {
         const obj = new Employee("Daniel", 1, "Daniel@fakeemail.com");
         expect(obj.getId()).toBe(1)
     })
+    //Testing the the  getId function returns a error if the id passed through isnt a number
+    it("Should throw an error of Id needs to be a number", () => {
+        const obj = new Employee("Daniel", "one", "Daniel@fakeemail.com");
+        const err = new Error("Id needs to be a number");
+        expect(() => obj.getId()).toThrow(err);
+    })
 })
