@@ -26,6 +26,6 @@ describe("Employee", () => {
      //Testing that the getEmail function returns correct email when the email is passed through in correct format
      it("Should return Daniel@fakeemail.com", () => {
         const obj = new Employee("Daniel", 1, "Daniel@fakeemail.com");
-        expect(obj.getId()).toBe(1)
+        expect(obj.getEmail()).toBe("Daniel@fakeemail.com")
     })
 })
