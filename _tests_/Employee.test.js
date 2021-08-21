@@ -13,7 +13,7 @@ describe("Employee", () => {
         expect(() => obj.getName()).toThrow(err)
     })
     //Testing that the getId function returns correct id when given a number
-    it("Should return Daniel@fakeemail.com", () => {
+    it("Should return 1", () => {
         const obj = new Employee("Daniel", 1, "Daniel@fakeemail.com");
         expect(obj.getId()).toBe(1)
     })
@@ -22,5 +22,10 @@ describe("Employee", () => {
         const obj = new Employee("Daniel", "one", "Daniel@fakeemail.com");
         const err = new Error("Id needs to be a number");
         expect(() => obj.getId()).toThrow(err);
+    })
+     //Testing that the getEmail function returns correct email when the email is passed through in correct format
+     it("Should return Daniel@fakeemail.com", () => {
+        const obj = new Employee("Daniel", 1, "Daniel@fakeemail.com");
+        expect(obj.getId()).toBe(1)
     })
 })
