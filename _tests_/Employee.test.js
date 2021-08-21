@@ -34,4 +34,9 @@ describe("Employee", () => {
         const err = new Error("Email needs to be in the following format email@website.com")
         expect(() => obj.getEmail()).toThrow(err)
     })
+    //Testing that the getRole function returns Employee
+    it("Should return Employee", () => {
+        const obj = new Employee("Daniel", 1, "Daniel@fakeemail.com");
+        expect(obj.getRole()).toBe("Employee")
+    })
 })
