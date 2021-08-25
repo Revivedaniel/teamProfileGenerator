@@ -13,8 +13,7 @@ describe("Manager", () => {
     })
     //Testing the validation of the phone number
     it("Should throw error of Office Number needs to be a number", () => {
-        const obj = new Manager("Daniel", 1, "Daniel@fakeemail.com", "officeNumber")
         const err = new Error("Office Number needs to be a number")
-        expect(() => obj).toThrow(err)
+        expect(() => new Manager("Daniel", 1, "Daniel@fakeemail.com", "officeNumber")).toThrow(err)
     })
 })
