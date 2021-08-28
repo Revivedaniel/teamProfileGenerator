@@ -7,22 +7,22 @@ const Intern = require("./lib/Intern");
 const managerQuestions = [
     {
         type: "input",
-        name: "managerName",
+        name: "name",
         message: "Enter the team manager's name"
     },
     {
         type: "input",
-        name: "managerId",
+        name: "id",
         message: "Enter the team manager's Id #"
     },
     {
         type: "input",
-        name: "managerEmail",
+        name: "email",
         message: "Enter the team manager's email"
     },
     {
         type: "input",
-        name: "officeNumber",
+        name: "adtlInfo",
         message: "Enter the team manager's office phone number"
     },
     {
@@ -36,22 +36,22 @@ const internQuestions = [
     //Intern questions
     {
         type: "input",
-        name: "internName",
+        name: "name",
         message: "Enter the intern's name"
     },
     {
         type: "input",
-        name: "internId",
+        name: "id",
         message: "Enter the intern's id #"
     },
     {
         type: "input",
-        name: "internEmail",
+        name: "email",
         message: "Enter the intern's email"
     },
     {
         type: "input",
-        name: "internSchool",
+        name: "adtlInfo",
         message: "Enter the intern's school"
     },
     {
@@ -65,22 +65,22 @@ const engineerQuestions = [
     //Engineer questions
     {
         type: "input",
-        name: "engineerName",
+        name: "name",
         message: "Enter the engineer's name"
     },
     {
         type: "input",
-        name: "engineerId",
+        name: "id",
         message: "Enter the engineer's id #"
     },
     {
         type: "input",
-        name: "engineerEmail",
+        name: "email",
         message: "Enter the engineer's email"
     },
     {
         type: "input",
-        name: "engineerGitHub",
+        name: "adtlInfo",
         message: "Enter the engineer's github"
     },
     {
@@ -89,7 +89,7 @@ const engineerQuestions = [
         choices: ["Add Another Employee", "All Done"]
     },
     
-]
+];
 
 const menu = [
     {
@@ -104,6 +104,7 @@ let allAnswers = [];
 function init() {
     inquirer.prompt(managerQuestions).then((data) => {
         data.employeeRole = "Manager";
+        data.adtlType = "Office phone"
         allAnswers.push(data);
         if (data.addAnotherEmployee == "Add Another Employee") {
             inquirer.prompt(menu).then((data) => {
@@ -129,6 +130,7 @@ function init() {
 function manager() {
     inquirer.prompt(managerQuestions).then((data) => {
         data.employeeRole = "Manager";
+        data.adtlType = "Office phone"
         allAnswers.push(data);
         if (data.addAnotherEmployee == "Add Another Employee") {
             inquirer.prompt(menu).then((data) => {
@@ -154,6 +156,7 @@ function manager() {
 function intern() {
     inquirer.prompt(internQuestions).then((data) => {
         data.employeeRole = "Intern";
+        data.adtlType = "School"
         allAnswers.push(data);
         if (data.addAnotherEmployee == "Add Another Employee") {
             inquirer.prompt(menu).then((data) => {
@@ -179,6 +182,7 @@ function intern() {
 function engineer() {
     inquirer.prompt(engineerQuestions).then((data) => {
         data.employeeRole = "Engineer";
+        data.adtlType = "Git Hub"
         allAnswers.push(data);
         if (data.addAnotherEmployee == "Add Another Employee") {
             inquirer.prompt(menu).then((data) => {
