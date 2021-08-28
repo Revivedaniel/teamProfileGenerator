@@ -105,7 +105,7 @@ let createListItem = (data) => {
                     <span>${data.id}</span>
                 </li>
                 <li style="border-top: lightgray solid 1px; border-bottom: lightgray solid 1px; height: 30px; display: flex; align-items: center; padding-left: 5px;">
-                    <span>${data.email}</span>
+                    <a href="mailto:${data.email}">${data.email}</a>
                 </li>
                 <li style="height: 30px; display: flex; align-items: center; padding-left: 5px;">
                     <span>${data.adtlType}: ${data.adtlInfo}</span>
