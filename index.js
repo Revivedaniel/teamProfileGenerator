@@ -94,25 +94,23 @@ const engineerQuestions = [
 
 let createListItem = (data) => {
     return(
-    `<li>
-    <section>
-        <h2>${data.name}</h2>
-        <h3>Manager</h3>
+    `<li style="width: 320px;">
+    <section style="background-color: #0077f7; color: white; border-top-left-radius: 5px; border-top-right-radius: 5px; box-shadow: 3px 3px 3px grey;">
+        <h2 style="margin: 0; padding: 5px;">${data.name}</h2>
+        <h3 style="margin: 0; padding-bottom: 5px; padding-left: 5px;">${data.employeeRole}</h3>
     </section>
-    <section>
-        <article>
-            <ul>
-                <li>
-                    ID: ${data.id}
+    <section style="box-shadow: 3px 3px 3px grey; background-color: #f6f7f9; border: lightgray 1px solid; display: flex; justify-content: center; padding-top: 30px; padding-bottom: 30px;">
+            <ul style="list-style: none; padding: 0; border: lightgray solid 1px; width: 270px; background-color: white;">
+                <li style="height: 30px; display: flex; align-items: center; padding-left: 5px;">
+                    <span>${data.id}</span>
                 </li>
-                <li>
-                    Email: ${data.email}
+                <li style="border-top: lightgray solid 1px; border-bottom: lightgray solid 1px; height: 30px; display: flex; align-items: center; padding-left: 5px;">
+                    <span>${data.email}</span>
                 </li>
-                <li>
-                    ${data.adtlType}: ${data.adtlInfo}
+                <li style="height: 30px; display: flex; align-items: center; padding-left: 5px;">
+                    <span>${data.adtlType}: ${data.adtlInfo}</span>
                 </li>
             </ul>
-        </article>
     </section>
 </li>`
     )}
