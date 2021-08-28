@@ -91,6 +91,30 @@ const engineerQuestions = [
     
 ];
 
+let createListItem = (data) => {
+    `<li>
+    <section>
+        <h2>${data.name}</h2>
+        <h3>Manager</h3>
+    </section>
+    <section>
+        <article>
+            <ul>
+                <li>
+                    ID: ${data.id}
+                </li>
+                <li>
+                    Email: ${data.email}
+                </li>
+                <li>
+                    ${data.adtlType}: ${data.adtlInfo}
+                </li>
+            </ul>
+        </article>
+    </section>
+</li>`
+}
+
 const menu = [
     {
         type: "list",
