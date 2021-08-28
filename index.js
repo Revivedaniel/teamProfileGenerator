@@ -146,7 +146,7 @@ function init() {
                 }
             })
         }else{
-           console.log(allAnswers)
+            generateMyTeamHtml(allAnswers);
         }
     })
 }
@@ -172,38 +172,7 @@ function manager() {
                 }
             })
         }else{
-             //create an empty list array and push each employee into it
-             let newList = [];
-             for (const key in allAnswers) {
-                 const employeeData = allAnswers[key];
-                 newList.push(createListItem(employeeData))    
-             }
-             //template the rest of the html and have a literal be the name of the empty list array
-             let newHtml = 
-                 `<!DOCTYPE html>
-                 <html lang="en">
-                 <head>
-                     <meta charset="UTF-8">
-                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                     <title>My Team</title>
-                 </head>
-                 <body style="margin: 0;">
-                     <header style="background-color: #e84756; color: white; height: 120px; display: flex; justify-content: center; align-items: center;">
-                         <h1 style="margin: 0; padding: 0;">My Team</h1>
-                     </header>
-                 
-                     <main>
-                         <ul style="list-style: none;">
-                             ${newList}
-                         </ul>
-                     </main>
-                 </body>
-                 </html>`
-             //write that to file
-            fs.writeFile("./myTeam.html", newHtml, (err) => {
-                err ? console.log(err) : console.log("Seccessfully created myTeam.html!")
-            })
+            generateMyTeamHtml(allAnswers);
         }
     })
 }
@@ -229,38 +198,7 @@ function intern() {
                 }
             })
         }else{
-            //create an empty list array and push each employee into it
-            let newList = [];
-            for (const key in allAnswers) {
-                const employeeData = allAnswers[key];
-                newList.push(createListItem(employeeData))    
-            }
-            //template the rest of the html and have a literal be the name of the empty list array
-            let newHtml = 
-                `<!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>My Team</title>
-                </head>
-                <body>
-                    <header>
-                        <h1>My Team</h1>
-                    </header>
-                
-                    <main>
-                        <ul>
-                            ${newList}
-                        </ul>
-                    </main>
-                </body>
-                </html>`
-            //write that to file
-           fs.writeFile("./myTeam.html", newHtml, (err) => {
-               err ? console.log(err) : console.log("Seccessfully created myTeam.html!")
-           })
+            generateMyTeamHtml(allAnswers);
         }
     })
 }
@@ -286,40 +224,44 @@ function engineer() {
                 }
             })
         }else{
-            //create an empty list array and push each employee into it
-            let newList = [];
-            for (const key in allAnswers) {
-                const employeeData = allAnswers[key];
-                newList.push(createListItem(employeeData))    
-            }
-            //template the rest of the html and have a literal be the name of the empty list array
-            let newHtml = 
-                `<!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>My Team</title>
-                </head>
-                <body>
-                    <header>
-                        <h1>My Team</h1>
-                    </header>
-                
-                    <main>
-                        <ul>
-                            ${newList}
-                        </ul>
-                    </main>
-                </body>
-                </html>`
-            //write that to file
-           fs.writeFile("./myTeam.html", newHtml, (err) => {
-               err ? console.log(err) : console.log("Seccessfully created myTeam.html!")
-           })
+            generateMyTeamHtml(allAnswers);
         }
     })
+}
+
+let generateMyTeamHtml = (allAnswers) => {
+        //create an empty list array and push each employee into it
+        let newList = [];
+        for (const key in allAnswers) {
+            const employeeData = allAnswers[key];
+            newList.push(createListItem(employeeData))    
+        }
+        //template the rest of the html and have a literal be the name of the empty list array
+        let newHtml = 
+            `<!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>My Team</title>
+            </head>
+            <body style="margin: 0;">
+                <header style="background-color: #e84756; color: white; height: 120px; display: flex; justify-content: center; align-items: center;">
+                    <h1 style="margin: 0; padding: 0;">My Team</h1>
+                </header>
+            
+                <main>
+                    <ul style="list-style: none; display: flex; justify-content: space-evenly; flex-wrap: wrap;">
+                        ${newList}
+                    </ul>
+                </main>
+            </body>
+            </html>`
+        //write that to file
+       fs.writeFile("./myTeam.html", newHtml, (err) => {
+           err ? console.log(err) : console.log("Seccessfully created myTeam.html!")
+       })
 }
 
 init();
