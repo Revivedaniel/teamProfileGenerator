@@ -1,4 +1,5 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
 const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
@@ -147,7 +148,7 @@ function init() {
                 }
             })
         }else{
-            console.log(createListItem(data))
+           console.log(allAnswers)
         }
     })
 }
@@ -173,7 +174,38 @@ function manager() {
                 }
             })
         }else{
-            console.log(createListItem(data))
+             //create an empty list array and push each employee into it
+             let newList = [];
+             for (const key in allAnswers) {
+                 const employeeData = allAnswers[key];
+                 newList.push(createListItem(employeeData))    
+             }
+             //template the rest of the html and have a literal be the name of the empty list array
+             let newHtml = 
+                 `<!DOCTYPE html>
+                 <html lang="en">
+                 <head>
+                     <meta charset="UTF-8">
+                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                     <title>My Team</title>
+                 </head>
+                 <body>
+                     <header>
+                         <h1>My Team</h1>
+                     </header>
+                 
+                     <main>
+                         <ul>
+                             ${newList}
+                         </ul>
+                     </main>
+                 </body>
+                 </html>`
+             //write that to file
+            fs.writeFile("./myTeam.html", newHtml, (err) => {
+                err ? console.log(err) : console.log("Seccessfully created myTeam.html!")
+            })
         }
     })
 }
@@ -199,7 +231,38 @@ function intern() {
                 }
             })
         }else{
-            console.log(createListItem(data))
+            //create an empty list array and push each employee into it
+            let newList = [];
+            for (const key in allAnswers) {
+                const employeeData = allAnswers[key];
+                newList.push(createListItem(employeeData))    
+            }
+            //template the rest of the html and have a literal be the name of the empty list array
+            let newHtml = 
+                `<!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>My Team</title>
+                </head>
+                <body>
+                    <header>
+                        <h1>My Team</h1>
+                    </header>
+                
+                    <main>
+                        <ul>
+                            ${newList}
+                        </ul>
+                    </main>
+                </body>
+                </html>`
+            //write that to file
+           fs.writeFile("./myTeam.html", newHtml, (err) => {
+               err ? console.log(err) : console.log("Seccessfully created myTeam.html!")
+           })
         }
     })
 }
@@ -225,7 +288,38 @@ function engineer() {
                 }
             })
         }else{
-            console.log(createListItem(data))
+            //create an empty list array and push each employee into it
+            let newList = [];
+            for (const key in allAnswers) {
+                const employeeData = allAnswers[key];
+                newList.push(createListItem(employeeData))    
+            }
+            //template the rest of the html and have a literal be the name of the empty list array
+            let newHtml = 
+                `<!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>My Team</title>
+                </head>
+                <body>
+                    <header>
+                        <h1>My Team</h1>
+                    </header>
+                
+                    <main>
+                        <ul>
+                            ${newList}
+                        </ul>
+                    </main>
+                </body>
+                </html>`
+            //write that to file
+           fs.writeFile("./myTeam.html", newHtml, (err) => {
+               err ? console.log(err) : console.log("Seccessfully created myTeam.html!")
+           })
         }
     })
 }
