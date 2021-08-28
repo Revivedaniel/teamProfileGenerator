@@ -188,13 +188,13 @@ function manager() {
                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
                      <title>My Team</title>
                  </head>
-                 <body>
-                     <header>
-                         <h1>My Team</h1>
+                 <body style="margin: 0;">
+                     <header style="background-color: #e84756; color: white; height: 120px; display: flex; justify-content: center; align-items: center;">
+                         <h1 style="margin: 0; padding: 0;">My Team</h1>
                      </header>
                  
                      <main>
-                         <ul>
+                         <ul style="list-style: none;">
                              ${newList}
                          </ul>
                      </main>
