@@ -92,6 +92,7 @@ const engineerQuestions = [
 ];
 
 let createListItem = (data) => {
+    return(
     `<li>
     <section>
         <h2>${data.name}</h2>
@@ -113,7 +114,7 @@ let createListItem = (data) => {
         </article>
     </section>
 </li>`
-}
+    )}
 
 const menu = [
     {
@@ -146,7 +147,7 @@ function init() {
                 }
             })
         }else{
-            console.log(allAnswers)
+            console.log(createListItem(data))
         }
     })
 }
@@ -172,7 +173,7 @@ function manager() {
                 }
             })
         }else{
-            console.log(allAnswers)
+            console.log(createListItem(data))
         }
     })
 }
@@ -198,7 +199,7 @@ function intern() {
                 }
             })
         }else{
-            console.log(allAnswers)
+            console.log(createListItem(data))
         }
     })
 }
@@ -224,7 +225,7 @@ function engineer() {
                 }
             })
         }else{
-            console.log(allAnswers)
+            console.log(createListItem(data))
         }
     })
 }
